@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/cloudAdoption/cloudAdoption",
+    "pages/message/message",
+    "pages/myPage/myPage"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -22,19 +25,19 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/cloudAdoption/cloudAdoption",
         "iconPath": "images/paw.png",
         "selectedIconPath": "images/iospaw.png",
         "text": "云认养"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/message/message",
         "iconPath": "images/message_fill_light.png",
         "selectedIconPath": "images/iospaw.png",
         "text": "消息"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/myPage/myPage",
         "iconPath": "images/face.png",
         "text": "我的"
       }
