@@ -32,13 +32,14 @@
       },
       {
         "pagePath": "pages/message/message",
-        "iconPath": "images/message_fill_light.png",
-        "selectedIconPath": "images/iospaw.png",
+        "iconPath": "images/message_light.png",
+        "selectedIconPath": "images/message_fill_light.png",
         "text": "消息"
       },
       {
         "pagePath": "pages/myPage/myPage",
-        "iconPath": "images/face.png",
+        "iconPath": "images/normal.png",
+        "selectedIconPath": "images/face.png",
         "text": "我的"
       }
     ]
