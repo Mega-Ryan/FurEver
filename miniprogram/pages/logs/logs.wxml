@@ -1,2 +1,12 @@
 <!--pages/logs/logs.wxml-->
-<text>pages/logs/logs.wxml</text>
+<view wx:if="{{canIUse}}">
+  <view class='header'>
+    <image src='{{img_url}}logo.png'></image>
+  </view>
+  <view class='content'>
+    <view>申请获取以下权限</view>
+    <text>获得你的公开信息(昵称，头像等)</text>
+  </view>
+  <button class='btn' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" wx:if="{{canIUse}}">授权登录</button>
+</view>
+<view wx:else>请升级微信版本</view>-->
