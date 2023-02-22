@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/postAnimal/postAnimal",
     "pages/index/index",
     "pages/logs/logs",
     "pages/cloudAdoption/cloudAdoption",
     "pages/message/message",
     "pages/myPage/myPage"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,8 +14,7 @@
     "navigationBarTitleText": "FurEver",
     "navigationBarTextStyle": "black"
   },
-  
-  "tabBar":{
+  "tabBar": {
     "color": "#bfc1ab",
     "selectedColor": "#13b11c",
     "backgroundColor": "#e89928",
@@ -25,7 +26,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/cloudAdoption/cloudAdoption",
+        "pagePath": "pages/postAnimal/postAnimal",
         "iconPath": "images/paw.png",
         "selectedIconPath": "images/iospaw.png",
         "text": "云认养"
@@ -44,7 +45,6 @@
       }
     ]
   },
-
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
