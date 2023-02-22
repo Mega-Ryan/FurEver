@@ -39,8 +39,8 @@
       },
       {
         "pagePath": "pages/myPage/myPage",
-        "iconPath": "images/face.png",
-        "selectedIconPath": "images/iospaw.png",
+        "iconPath": "images/normal.png",
+        "selectedIconPath": "images/face.png",
         "text": "我的"
       }
     ]
