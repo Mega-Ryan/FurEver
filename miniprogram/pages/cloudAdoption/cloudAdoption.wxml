@@ -1,2 +1,4 @@
 <!--pages/cloudAdoption/cloudAdoption.wxml-->
-<text>pages/cloudAdoption/cloudAdoption.wxml</text>
+<view wx:for="{{animal}}" wx:key="index">
+  <view>{{item.age}}</view>
+</view>

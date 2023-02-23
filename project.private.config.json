@@ -3,30 +3,5 @@
   "projectname": "FurEver",
   "setting": {
     "compileHotReLoad": true
-  },
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide",
-          "query": ""
-        },
-        {
-          "name": "pages/logs/logs",
-          "pathName": "pages/logs/logs",
-          "scene": null
-        }
-      ]
-    }
   }
 }
