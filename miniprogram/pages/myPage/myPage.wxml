@@ -1,2 +1,3 @@
 <!--pages/myPage/myPage.wxml-->
 <text>pages/myPage/myPage.wxml</text>
+<button bindtap="onSubmit">提交</button>

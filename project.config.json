@@ -39,9 +39,9 @@
     "condition": false,
     "ignoreUploadUnusedFiles": true
   },
-  "appid": "wxb3d17c95b491da7e",
+  "appid": "wx22b562d719e06d6a",
   "projectname": "myFur",
-  "libVersion": "2.14.1",
+  "libVersion": "2.30.0",
   "condition": {
     "miniprogram": {
       "list": [

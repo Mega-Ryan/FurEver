@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/addressList/addressList",
+    "pages/addAddress/addAddress",
     "pages/index/index",
     "pages/logs/logs",
     "pages/cloudAdoption/cloudAdoption",
@@ -12,8 +14,7 @@
     "navigationBarTitleText": "FurEver",
     "navigationBarTextStyle": "black"
   },
-  
-  "tabBar":{
+  "tabBar": {
     "color": "#bfc1ab",
     "selectedColor": "#13b11c",
     "backgroundColor": "#e89928",
@@ -44,7 +45,6 @@
       }
     ]
   },
-
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
