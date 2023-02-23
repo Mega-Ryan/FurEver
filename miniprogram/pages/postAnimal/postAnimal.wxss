@@ -1,1 +1,18 @@
 /* pages/postAnimal/postAnimal.wxss */
+page {
+  background: #EFF4FF;
+}
+
+.imgBox {
+  font-size: 28rpx;
+  margin: 3%;
+  background: white;
+  padding: 30rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.imgContant {
+  margin-left: 40rpx;
+}
