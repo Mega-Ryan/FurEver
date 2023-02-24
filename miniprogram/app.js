@@ -1,19 +1,15 @@
 // app.js
 App({
   onLaunch() {
-    if (!wx.cloud) {
-      console.error("Cloud service error")
-    } else {
-      wx.cloud.init({
-        traceUser: true
-      })
-    }
-
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    //
+    wx.cloud.init({
+      env: 'cloud1-1gzx44mtd187a189',
+      traceUser: true,
+    })
     // 登录
     wx.login({
       success: res => {
@@ -23,5 +19,6 @@ App({
   },
   globalData: {
     userInfo: null
-  }
+  },
+  
 })
