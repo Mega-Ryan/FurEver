@@ -2,6 +2,7 @@
 wx.cloud.init()
 const db = wx.cloud.database();
 const app = getApp();
+const cloudAdd = [];
 Page({
   data: {
     images:[],//选择图片
@@ -48,6 +49,7 @@ Page({
  
           if(that.data.images_success_size == that.data.images.length){
             console.log("上传成功：", that.data.images_success)
+            cloudAdd = that.data.images_success
           } else {
             that.uploadImage(index+1)
           }
@@ -93,7 +95,7 @@ Page({
         age:that.data.age,
         is:that.data.sterilization,
         species:that.data.animal,
-        picAddress:that.data.images_success
+        picAddress:cloudAdd
       },
       success:function(res){
         console.log(res)
