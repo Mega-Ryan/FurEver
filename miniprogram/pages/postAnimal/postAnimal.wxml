@@ -1,0 +1,50 @@
+<!--pages/postAnimal/postAnimal.wxml-->
+<!--pages/postAnimal/postAnimal.wxml-->
+<text>发布待救助动物信息</text>
+<view class="PA">
+  <form bindsubmit="bthsub">
+
+    <view class="animal">动物种类</view>
+    <view class = "nr">
+      <radio-group class="radios" bindchange='handleChange1'>
+        <radio value="cat">猫</radio>
+        <radio value="dog">狗</radio>
+        <radio value="other">其他</radio>
+      </radio-group>
+    </view>
+
+    <view class="animal">是否绝育</view>
+    <view class = "nr">
+      <radio-group class="radios" bindchange='handleChange2'>
+        <radio value="yes">已绝育</radio>
+        <radio value="no">未绝育</radio>
+        <radio value="notKnow">我不知道</radio>
+      </radio-group>
+    </view>
+
+    <view class="animal">动物年龄</view>
+    <view class="nr">
+      <input name="age" bindinput='handleInput' placeholder="请输入数字"/>
+    </view>
+
+    <view>
+      
+      <view class="imgBox">
+        <block wx:for="{{images}}" wx:key="*this" class="imgContant">
+           <view data-index="{{index}}" class="item_img">
+             <image src="{{item}}"></image>
+           </view>
+         </block>
+       </view>
+       <view bindtap="upload" >上传</view>
+   </view>
+
+
+    <view class="btn">
+      <button type="primary" form-type="submit"  bindtap="postSubmit"> 提交</button>
+    </view>
+    <view class="btn">
+      <button type="primary" form-type="reset"  > 重置</button>
+    </view>
+  </form>
+</view>

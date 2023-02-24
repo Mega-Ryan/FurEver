@@ -1,10 +1,15 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/logs/logs",
     "pages/cloudAdoption/cloudAdoption",
     "pages/message/message",
-    "pages/myPage/myPage"
+    "pages/myPage/myPage",
+    "pages/addAddress/addAddress",
+    "pages/addressList/addressList",
+    "pages/postAnimal/postAnimal",
+    "pages/load/load"
   ],
   "window": {
     "backgroundTextStyle": "light",

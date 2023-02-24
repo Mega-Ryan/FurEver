@@ -1,22 +1,30 @@
 // pages/myPage/myPage.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo:[]
   },
   toAdd(){
     wx.reLaunch({
-      url: '../index/index'
+      url: '../postAnimal/postAnimal'
+    })
+  },
+  myAddress(e){
+    wx.reLaunch({
+      url: '../addressList/addressList',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      userInfo : app.globalData.userInfo
+    })
   },
 
   /**

@@ -1,37 +1,38 @@
 <!--pages/myPage/myPage.wxml-->
 <view>
   <view>
-
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+		<text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
 
   <view class="classify">
     <view class="item cloudAdoption" bindtap="">
       <view class="image">
-        <image src=""  mode="widthFix" />
+        <image src="../../images/icon/1paw.png"  mode="widthFix" />
       </view>
       <text>我的云养</text>
     </view>
     <view class="item add" bindtap="toAdd">
       <view class="image">
-        <image src="" mode="widthFix" />
+        <image src="../../images/icon/2Post.png" mode="widthFix" />
       </view>
       <text>我的发布</text>
     </view>
     <view class="item live" bindtap="">
       <view class="image">
-        <image src="" mode="widthFix" />
+        <image src="../../images/icon/3live.png" mode="widthFix" />
       </view>
       <text>我的直播</text>
     </view>
     <view class="item message" bindtap="">
       <view class="image">
-        <image src="" mode="widthFix" />
+        <image src="../../images/icon/4material.png" mode="widthFix" />
       </view>
       <text>物资信息</text>
     </view>
   </view>
   <view>
-    
+    <button bindtap="myAddress">我的地址</button>
   </view>
 </view>
 
