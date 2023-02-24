@@ -4,4 +4,5 @@
   <viex>是否绝育：{{item.is}}</viex>
   <view>图片地址：{{item.picAddress}}</view>
   <viex>种类：{{item.species}}</viex>
+  <image src="{{item.fileID}}"></image>"
 </view>

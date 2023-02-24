@@ -18,7 +18,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    fileID: null
   },
   
 })
