@@ -11,8 +11,10 @@ Page({
     animal: "",
     sterilization:"",
     age:"",
+
     picAddress:[],
     fileID:[]
+
     
   },
   upload(){
@@ -24,7 +26,9 @@ Page({
       success(res){
         //const tempFilePaths = res.tempFilePaths
         that.setData({
+
           images: res.tempFilePaths,
+
          });
          console.log("选择成功",res)
       }
@@ -51,6 +55,7 @@ Page({
           console.log("上传成功",res.fileID)
           that.data.images_success[index] = res.fileID;
           that.data.images_success_size = that.data.images_success_size+1;
+
           
           console.log("lizhenguo",that.data.fileID)
           db.collection('test').add({
@@ -66,9 +71,7 @@ Page({
           })
           if(that.data.images_success_size == that.data.images.length){
             console.log("上传成功：", that.data.images_success)
-            // that.setData({
-            //   fileID : res.fileID
-            // })
+            
           } else {
             that.uploadImage(index+1)
           }
@@ -103,16 +106,13 @@ Page({
   bthsub(res){
     let that = this;
     if(that.data.images.length > 0){//1、判断是否有图片
-      
+
       that.setData({
         //3、给上传图片初始化一个长度，上传成功的数组和已有的数组一致
         images_success:that.data.images
       })
       that.uploadImage(0)//2、有图片时先上传第一张
-    
-    }
-      
-    
+    }          
   },
 
   handleChange1:function(e) {

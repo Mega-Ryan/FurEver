@@ -18,8 +18,12 @@ App({
     })
   },
   globalData: {
+
     userInfo: null,
     fileID: null
+
+
+
   },
   
 })
