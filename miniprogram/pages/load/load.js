@@ -4,7 +4,7 @@ var app = getApp()
 // miniprogram/pages/load/load.js
 const db = wx.cloud.database()
 const _ = db.command
-const user = db.collection('User')
+const user = db.collection('user')
 const postList = db.collection('postList')
 let result = {}
 
@@ -55,6 +55,24 @@ Page({
                 app.globalData.userInfo.openid=res.data.openid
                 //获取到你的openid
                 console.log(app.globalData.userInfo);
+                //判断该用户是否存储在数据库中
+                user.where({
+                  _openid: app.globalData.userInfo.openid
+                }).get({
+                  success:(res)=>{ 
+                    if(res.data.length == 0){
+                      console.log(res)
+                      console.log(app.globalData.userInfo.nickName)
+                      user.add({
+                        data:{
+                          userName:app.globalData.userInfo.nickName,
+                          done:false
+                        }
+                       
+                      })
+                    }
+                  }
+                })
               }
             })
           }
