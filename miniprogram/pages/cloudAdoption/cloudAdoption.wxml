@@ -1,10 +1,8 @@
 <!--pages/cloudAdoption/cloudAdoption.wxml-->
-<view wx:for="{{animal}}" wx:key="index">
-  <view>年龄：{{item.age}}</view>
-  <viex>是否绝育：{{item.is}}</viex>
-  <view>图片地址：{{item.picAddress}}</view>
-  <viex>种类：{{item.species}}</viex>
 
-  <image src="{{item.fileID}}"></image>"
-
+<view wx:for="{{animal}}" wx:key="index" id="{{item._id}}" bindtap="toDetail">
+    <image src="{{item.fileID}}"></image>
+    <view>名字：{{item.name}}</view>
+    <view>年龄：{{item.age}}</view>
+    <view>{{item.text}}</view> 
 </view>

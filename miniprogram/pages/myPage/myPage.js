@@ -10,12 +10,17 @@ Page({
   },
   toAdd(){
     wx.reLaunch({
-      url: '../postAnimal/postAnimal'
+      url: '../myPostHistory/myPostHistory'
     })
   },
   myAddress(e){
     wx.reLaunch({
       url: '../addressList/addressList',
+    })
+  },
+  toLive(e){
+    wx.reLaunch({
+      url: '../live/live',
     })
   },
   /**

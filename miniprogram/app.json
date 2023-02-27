@@ -9,7 +9,8 @@
     "pages/addAddress/addAddress",
     "pages/addressList/addressList",
     "pages/postAnimal/postAnimal",
-    "pages/load/load"
+    "pages/load/load",
+    "pages/myPostHistory/myPostHistory"
   ],
   "window": {
     "backgroundTextStyle": "light",

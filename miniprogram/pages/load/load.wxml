@@ -8,7 +8,7 @@
 	<view class="userinfo">
 		<block>
 			<view class="txt">欢迎使用小程序，我们需要一些您的公开信息，包括昵称、头像等</view>
-			<view bindtap="getUserProfile" class="button mai">授权登录</view>
+			<view bindtap="getUserProFile" class="button mai">授权登录</view>
 		</block>
 		<!-- <block wx:else>
 			<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>

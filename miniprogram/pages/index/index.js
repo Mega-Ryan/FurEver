@@ -7,7 +7,13 @@ Page({
   data: {
     animal:[]
   },
-
+  toDetail(e){
+    console.log(e)
+    
+    wx.reLaunch({
+      url: `/pages/detail/detail?id=${e.currentTarget.id}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
