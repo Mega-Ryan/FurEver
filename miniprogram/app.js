@@ -7,7 +7,7 @@ App({
     wx.setStorageSync('logs', logs)
     //
     wx.cloud.init({
-      env: 'cloud1-1gzx44mtd187a189',
+      env: 'cloud1-6gt7m3fn0b4fb5ce',
       traceUser: true,
     })
     // 登录

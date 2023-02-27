@@ -18,7 +18,7 @@
       </view>
       <text>我的发布</text>
     </view>
-    <view class="item live" bindtap="">
+    <view class="item live" bindtap="toLive">
       <view class="image">
         <image src="../../images/icon/3live.png" mode="widthFix" />
       </view>

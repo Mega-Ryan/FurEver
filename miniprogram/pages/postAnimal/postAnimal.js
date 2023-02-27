@@ -13,7 +13,10 @@ Page({
     age:"",
 
     picAddress:[],
-    fileID:[]
+    fileID:[],
+    name:"",
+    sex:"",
+    region:[]
 
     
   },
@@ -61,13 +64,46 @@ Page({
           db.collection('test').add({
             data:{
               age:that.data.age,
-              is:that.data.sterilization,
+              isSterilization:that.data.sterilization,
               species:that.data.animal,
-              fileID:that.data.images_success
+              fileID:that.data.images_success,
+              region:that.data.region,
+              age:that.data.age,
+              sex:that.data.sex,
+              name:that.data.name
             },
             success:function(res){
               console.log(res)
+              wx.showModal({
+                title: '提示',
+                content: '添加成功',
+                success: function (res) {
+                  if (res.confirm) {//这里是点击了确定以后
+                    wx.reLaunch({
+                      url: '../index/index',
+                    })
+                  } else {//这里是点击了取消以后
+                   
+                  }
+                }
+              })
+            },
+            fail:err=>{
+              wx.showModal({
+                title: '提示',
+                content: '添加失败',
+                success: function (res) {
+                  if (res.confirm) {//这里是点击了确定以后
+                    wx.reLaunch({
+                      url: '../postAnimal/postAnimal',
+                    })
+                  } else {//这里是点击了取消以后
+                    
+                  }
+                }
+              })
             }
+
           })
           if(that.data.images_success_size == that.data.images.length){
             console.log("上传成功：", that.data.images_success)
@@ -133,6 +169,15 @@ Page({
       sterilization:animalValue
     })
   },
+  handleChange3:function(e) {
+    let animalValue=e.detail.value;
+    let that = this;
+    console.log(animalValue)
+    // 2 把值 赋值给data中的数据
+    that.setData({
+      sex:animalValue
+    })
+  },
   handleInput:function(e) {
     let value = this.validateNumber(e.detail.value)
     console.log(value)
@@ -142,5 +187,26 @@ Page({
   },
   validateNumber(val) {
     return val.replace(/\D/g, '')
+  },
+  setName:function(e) {
+    let animalValue=e.detail.value;
+    let that = this;
+    console.log(animalValue)
+    // 2 把值 赋值给data中的数据
+    that.setData({
+      name:animalValue
+    })
+  },
+  getUserProvince:function(e)
+  {
+     this.setData({
+         region:e.detail.value     //将用户选择的省市区赋值给region
+     })
+  },
+  set:function(e)
+  {
+     this.setData({
+         region:e.detail.value     //将用户选择的省市区赋值给region
+     })
   }
 })
