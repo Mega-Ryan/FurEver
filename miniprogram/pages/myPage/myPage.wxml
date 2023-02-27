@@ -33,6 +33,7 @@
   </view>
   <view>
     <button bindtap="myAddress">我的地址</button>
+    <button hidden="{{!userInfo.done}}" bindtap="toApproval">去审核</button>
   </view>
 </view>
 

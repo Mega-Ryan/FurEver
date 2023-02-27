@@ -76,5 +76,11 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  donation:function(e){
+    // console.log(e)
+    wx.reLaunch({
+      url: `../donation/donation?id=${e.currentTarget.id}`,
+    })
   }
 })

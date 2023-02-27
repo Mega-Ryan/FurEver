@@ -1,0 +1,11 @@
+/* pages/donation/donation.wxss */
+.textarea-bg {
+  background-color: #fff;
+  padding:30rpx;
+  width:700rpx;
+}
+.word{
+  position: absolute;
+  bottom:30rpx;
+  right:30rpx;
+}

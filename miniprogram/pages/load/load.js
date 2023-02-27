@@ -67,9 +67,45 @@ Page({
                         data:{
                           userName:app.globalData.userInfo.nickName,
                           done:false
+                        },success:(res)=>{
+                          app.globalData.userInfo.done = false
                         }
-                       
                       })
+                      wx.showModal({
+                        title: '提示',
+                        content: '用户登陆',
+                        success: function (res) {
+                          if (res.confirm) {//这里是点击了确定以后
+                            wx.reLaunch({
+                              url: '../myPage/myPage',
+                            })
+                          } else {//这里是点击了取消以后
+                            wx.reLaunch({
+                              url: '../index/index',
+                            })
+                          }
+                        }
+                      })
+                    }else{
+                      console.log(res.data[0].done)
+                      app.globalData.userInfo.done = res.data[0].done
+                      if(res.data[0].done){
+                        wx.showModal({
+                          title: '提示',
+                          content: '管理员登陆',
+                          success: function (res) {
+                            if (res.confirm) {//这里是点击了确定以后
+                              wx.reLaunch({
+                                url: '../approval/approval',
+                              })
+                            } else {//这里是点击了取消以后
+                              wx.reLaunch({
+                                url: '../index/index',
+                              })
+                            }
+                          }
+                        })
+                      }
                     }
                   }
                 })
@@ -78,9 +114,7 @@ Page({
           }
         })
         
-        wx.reLaunch({
-          url: '/pages/myPage/myPage',
-        })
+        
       },
       fail:(res)=>{
         console.log("授权失败",res)

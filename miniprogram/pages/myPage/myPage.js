@@ -8,7 +8,12 @@ Page({
   data: {
     userInfo:[]
   },
-  toAdd(){
+  toApproval(e){
+    wx.reLaunch({
+      url: '../approval/approval'
+    })
+  },
+  toAdd(e){
     wx.reLaunch({
       url: '../myPostHistory/myPostHistory'
     })

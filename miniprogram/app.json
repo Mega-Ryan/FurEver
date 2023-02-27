@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/logs/logs",
     "pages/cloudAdoption/cloudAdoption",
@@ -10,7 +9,10 @@
     "pages/addressList/addressList",
     "pages/postAnimal/postAnimal",
     "pages/load/load",
-    "pages/myPostHistory/myPostHistory"
+    "pages/myPostHistory/myPostHistory",
+    "pages/detail/detail",
+    "pages/approval/approval",
+    "pages/donation/donation"
   ],
   "window": {
     "backgroundTextStyle": "light",
