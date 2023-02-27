@@ -3,5 +3,32 @@
   "projectname": "FurEver",
   "setting": {
     "compileHotReLoad": true
+<<<<<<< Updated upstream
+=======
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "pages/detail/detail",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/load/load",
+          "pathName": "pages/load/load",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+>>>>>>> Stashed changes
   }
 }

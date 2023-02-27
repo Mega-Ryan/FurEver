@@ -1,0 +1,17 @@
+<view>
+    <image src="{{animalInfo.fileID}}"></image>
+    <view>名字：{{animalInfo.name}}</view>
+    <view>年龄：{{animalInfo.age}}</view>
+    <view>性别：{{animalInfo.sex}}</view>
+    <view>动物种类：{{animalInfo.species}}</view>
+    <view>所在地：{{animalInfo.region}}</view>
+    <view>是否绝育：{{animalInfo.isSterilization}}</view>
+    <view>{{animalInfo.text}}</view>
+</view>
+<view>
+  <view>分享</view>
+  <view>收藏</view>
+  <button bindtap="donation" id="{{animalInfo._id}}">捐赠物资</button>
+  <view>立即认养</view>
+</view>
+

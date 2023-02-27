@@ -1,12 +1,25 @@
 {
   "pages": [
+<<<<<<< Updated upstream
     "pages/postAnimal/postAnimal",
+=======
+>>>>>>> Stashed changes
     "pages/index/index",
+    "pages/donation/donation",
     "pages/logs/logs",
     "pages/cloudAdoption/cloudAdoption",
     "pages/message/message",
+<<<<<<< Updated upstream
     "pages/myPage/myPage"
 
+=======
+    "pages/myPage/myPage",
+    "pages/addAddress/addAddress",
+    "pages/addressList/addressList",
+    "pages/load/load",
+    "pages/myPostHistory/myPostHistory",
+    "pages/detail/detail"
+>>>>>>> Stashed changes
   ],
   "window": {
     "backgroundTextStyle": "light",
