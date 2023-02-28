@@ -1,17 +1,16 @@
 // pages/cloudAdoption/cloudAdoption.js
 const db = wx.cloud.database()
-
 const app = getApp()
 
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    animal:[]
+    animal: []
   },
+  
   //路由传参到动物详情页
   toDetail(e){
     console.log(e)
@@ -19,24 +18,23 @@ Page({
       url: `/pages/detail/detail?id=${e.currentTarget.id}`,
     })
   },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     var that = this
-    db.collection('test').where({
-      isApproval:true
-    }).get({
-      success: res => {
+    db.collection('test').where({}).get({
+      success: function(res) {
         // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
         console.log(res)
         that.setData({
-          animal:res.data,
+          animal: res.data,
         })
         console.log(that.data.animal)
       }
     })
-    
+
   },
 
   /**
@@ -50,7 +48,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    console.log("onShow")
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
   },
 
   /**

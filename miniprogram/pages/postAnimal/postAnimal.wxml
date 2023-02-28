@@ -1,22 +1,34 @@
 <!--pages/postAnimal/postAnimal.wxml-->
-<!--pages/postAnimal/postAnimal.wxml-->
-<text>发布待救助动物信息</text>
-<view class="PA">
-  <form bindsubmit="bthsub">
 
-    <view class="animal">动物名字（不知道就填无）</view>
-    <view class = "nr">
-      <input class="input" name="userName" placeholder="请输入动物名" bindinput="setName" />
-    </view>
 
-    <view class="animal">动物种类</view>
-    <view class = "nr">
-      <radio-group class="radios" bindchange='handleChange1'>
-        <radio value="cat">猫</radio>
-        <radio value="dog">狗</radio>
-        <radio value="other">其他</radio>
-      </radio-group>
+<form bindsubmit="bthsub">
+  <view class="cu-form-group margin-top">
+    <view class="title">动物名称</view>
+    <input name="userName" placeholder="请输入动物名" bindinput="setName"></input>
+  </view>
+
+  <radio-group class="block" bindchange='handleChange1'>
+    <view class="cu-form-group margin-top">
+      <view class="title">动物种类</view>
+      <radio class="orange radio" value="cat" checked></radio>猫
+      <radio class="orange radio" value="dog"></radio>狗
+      <radio class="orange radio"  value="other"></radio>其他
     </view>
+  </radio-group>
+
+  <view class="cu-form-group">
+    <view class="title">动物性别</view>
+    <switch class="switch-sex" checked bindchange="handleChange3"></switch>
+  </view>
+
+  <radio-group class="block" bindchange='handleChange2'>
+    <view class="cu-form-group">
+      <view class="title">是否绝育</view>
+      <radio class="orange radio" value="yes" checked></radio>已绝育
+      <radio class="orange radio" value="no"></radio>未绝育
+      <radio class="orange radio" value="notKnow"></radio>不清楚
+    </view>
+  </radio-group>
 
     <view class="animal">性别</view>
     <view class = "nr">
@@ -48,8 +60,7 @@
     </picker>
 
 
-    <view>
-      
+    <view>   
       <view class="imgBox">
         <block wx:for="{{images}}" wx:key="*this" class="imgContant">
            <view data-index="{{index}}" class="item_img">
@@ -60,7 +71,6 @@
        <view bindtap="upload" >上传</view>
    </view>
 
-
     <view class="btn">
       <button type="primary" form-type="submit" > 提交</button>
     </view>
@@ -69,3 +79,45 @@
     </view>
   </form>
 </view>
+
+  <view class="cu-form-group">
+    <view class="title">动物年龄</view>
+    <input name="age" placeholder="请输入动物年龄" bindinput="handleInput"></input>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title">动物所在地</view>
+    <picker mode="region" bindchange="getUserProvince">
+      <view>
+        选择地址：<text wx:for="{{region}}">{{item}} </text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="cu-bar bg-white margin-top">
+		<view class="action">
+			图片上传
+		</view>
+		<view class="action">
+			{{images.length}}/4
+		</view>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{images}}" wx:key="index" bindtap="viewImg" data-url="{{images[index]}}">
+				<image src='{{images[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="delImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="chooseImg" wx:if="{{images.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+  <view class="cu-bar btn-group">
+    <button class="cu-btn bg-orange shadow-blur" form-type="submit">保存</button>
+    <button class="cu-btn text-orange line-orange shadow" form-type="reset">重置</button>
+  </view>
+</form>

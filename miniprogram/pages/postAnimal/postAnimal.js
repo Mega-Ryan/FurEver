@@ -11,15 +11,13 @@ Page({
     animal: "",
     sterilization:"",
     age:"",
-
     picAddress:[],
     fileID:[],
     name:"",
     sex:"",
-    region:[]
-
-    
+    region:[]    
   },
+  
   upload(){
     let that=this;
     wx.chooseImage({//异步方法
@@ -34,9 +32,51 @@ Page({
 
          });
          console.log("选择成功",res)
+  },
+
+  viewImg(e) {
+    wx.previewImage({
+      urls: this.data.images,
+      current: e.currentTarget.dataset.url
+    });
+  },
+
+  chooseImg() {
+    wx.chooseImage({
+      count: 4, //默认4
+      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album'], //从相册选择
+      success: (res) => {
+        if (this.data.images.length != 0) {
+          this.setData({
+            images: this.data.images.concat(res.tempFilePaths)
+          })
+        } else {
+          this.setData({
+            images: res.tempFilePaths
+          })
+        }
+      }
+    });
+  },
+
+  delImg(e) {
+    wx.showModal({
+      title: '确认删除',
+      content: '确定要删除这张图片吗？',
+      cancelText: '取消',
+      confirmText: '确认',
+      success: res => {
+        if (res.confirm) {
+          this.data.images.splice(e.currentTarget.dataset.index, 1);
+          this.setData({
+            images: this.data.images
+          })
+        }
       }
     })
   },
+
   postSubmit(e){
     wx.reLaunch({
       url: '../index/index',
@@ -46,10 +86,6 @@ Page({
   uploadImage(index){
     let that=this
     let add = 'myImage/' + new Date().getTime() + "_" +  Math.floor(Math.random()*1000) + ".jpg"//使用时间戳加随机数给图片
-    // that.setData({
-    //   picAddress : add
-    // })
-    // console.log(that.data.picAddress)
       wx.cloud.uploadFile({//上传至微信云存储
         cloudPath:add,
         filePath:that.data.images[index],// 本地文件路径
@@ -57,9 +93,7 @@ Page({
           // 返回文件 ID
           console.log("上传成功",res.fileID)
           that.data.images_success[index] = res.fileID;
-          that.data.images_success_size = that.data.images_success_size+1;
-
-          
+          that.data.images_success_size = that.data.images_success_size+1; 
           console.log("lizhenguo",that.data.fileID)
           db.collection('test').add({
             data:{
@@ -105,7 +139,6 @@ Page({
                 }
               })
             }
-
           })
           if(that.data.images_success_size == that.data.images.length){
             console.log("上传成功：", that.data.images_success)
@@ -127,19 +160,6 @@ Page({
       })
  
   },
- 
-//  //提交表单添加到数据库
-//  addBtn: function(e){
-//   let that=this;
-//   if(that.data.images.length > 0){//1、判断是否有图片
-//     that.setData({
-//       //3、给上传图片初始化一个长度，上传成功的数组和已有的数组一致
-//       images_success:that.data.images
-//     })
-//     that.uploadImage(0)//2、有图片时先上传第一张
-//     }
-   
-//  },
 
   bthsub(res){
     let that = this;
@@ -177,7 +197,7 @@ Page({
     console.log(animalValue)
     // 2 把值 赋值给data中的数据
     that.setData({
-      sex:animalValue
+      sex:animalValue ? "male":"female"
     })
   },
   handleInput:function(e) {

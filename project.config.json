@@ -35,11 +35,13 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "condition": false,
+    "ignoreUploadUnusedFiles": true
   },
   "appid": "wx22b562d719e06d6a",
   "projectname": "myFur",
-  "libVersion": "2.14.1",
+  "libVersion": "2.30.1",
   "compileType": "miniprogram",
   "srcMiniprogramRoot": "miniprogram/",
   "packOptions": {
