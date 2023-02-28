@@ -13,7 +13,8 @@
     "pages/detail/detail",
     "pages/approval/approval",
     "pages/donation/donation",
-    "pages/findExpress/findExpress"
+    "pages/findExpress/findExpress",
+    "pages/myAdoption/myAdoption"
   ],
   "window": {
     "backgroundTextStyle": "light",

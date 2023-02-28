@@ -41,6 +41,7 @@ Page({
         })
         console.log("授权成功",res)
         app.globalData.userInfo = res.userInfo
+        app.globalData.hasUserInfo = true
         console.log(app.globalData.userInfo)
         wx.login({
           //成功放回
@@ -97,6 +98,22 @@ Page({
                             if (res.confirm) {//这里是点击了确定以后
                               wx.reLaunch({
                                 url: '../approval/approval',
+                              })
+                            } else {//这里是点击了取消以后
+                              wx.reLaunch({
+                                url: '../index/index',
+                              })
+                            }
+                          }
+                        })
+                      }else{
+                        wx.showModal({
+                          title: '提示',
+                          content: '用户登陆',
+                          success: function (res) {
+                            if (res.confirm) {//这里是点击了确定以后
+                              wx.reLaunch({
+                                url: '../myPage/myPage',
                               })
                             } else {//这里是点击了取消以后
                               wx.reLaunch({

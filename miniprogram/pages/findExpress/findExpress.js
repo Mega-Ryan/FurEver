@@ -6,7 +6,8 @@ Page({
     OrderNo:'',
     express:[],
     TimeContext:[],
-    show:false
+    show:false,
+    expressNum:null
   },
   btnClick: function (options) {
     var that = this;
@@ -28,12 +29,18 @@ Page({
       console.log(that.data.express[0].time)
     });
   },
-  onLoad: function() {
-   
+  onLoad: function(options) {
+    console.log(options.express)
+    console.log(typeof(options.express))
+    this.setData({
+      expressNum:options.express,
+      OrderNo:options.express
+    })
   },
   //输入框输入订单号后赋值
   input: function(e) {
     console.log(e.detail.value)
+    console.log(typeof(e.detail.value))
     this.setData({
       OrderNo: e.detail.value
     })

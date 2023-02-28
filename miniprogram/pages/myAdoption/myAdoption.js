@@ -1,43 +1,44 @@
-const db = wx.cloud.database()
+// pages/message/message.js
 const app = getApp()
+const db = wx.cloud.database()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    animal:[]
+    animalInfo:[],
   },
-  toDetail(e){
+  toAdoptionDetail(e){
     console.log(e)
-    
     wx.reLaunch({
-      url: `/pages/detail/detail?id=${e.currentTarget.id}`,
+      url: `/pages/adoptionDetail/adoptionDetail?id=${e.currentTarget.id}`,
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    if(!app.globalData.hasUserInfo){
-      wx.reLaunch({
-        url: '../load/load',
-      })
-    }
-    var that = this
-    db.collection('test').where({
-      isApproval:true
+    let that = this
+    let userInfo = app.globalData.userInfo
+    db.collection('adoption').where({
+      _openid:userInfo.openid
     }).get({
-      success: function(res) {
-        // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+      success:(res)=>{
         console.log(res)
-        that.setData({
-          animal:res.data,
-        })
-        console.log(that.data.animal)
+        for(var i=0;i<res.data.length;i++){
+          db.collection('test').doc(res.data[i].animalid).get({
+            success:(res)=>{
+              that.setData({
+                animalInfo:that.data.animalInfo.concat(res.data)
+              })
+              console.log("finally",that.data.animalInfo)
+            }
+          })
+        }
+        
+        
       }
     })
-    
   },
 
   /**
