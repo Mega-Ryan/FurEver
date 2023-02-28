@@ -1,30 +1,18 @@
-// pages/myPage/myPage.js
-var app = getApp()
+// custom-tab-bar/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:[]
+
   },
-  toAdd(){
-    wx.reLaunch({
-      url: '../postAnimal/postAnimal'
-    })
-  },
-  myAddress(e){
-    wx.reLaunch({
-      url: '../addressList/addressList',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.setData({
-      userInfo : app.globalData.userInfo
-    })
+
   },
 
   /**
@@ -38,12 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    console.log("onShow")
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 0
-      })
-    }
+
   },
 
   /**

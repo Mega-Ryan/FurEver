@@ -5,15 +5,6 @@
     "compileHotReLoad": true
   },
   "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
@@ -30,9 +21,11 @@
         {
           "name": "pages/load/load",
           "pathName": "pages/load/load",
+          "query": "",
           "scene": null
         }
       ]
     }
-  }
+  },
+  "libVersion": "2.30.1"
 }
