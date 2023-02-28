@@ -12,7 +12,8 @@
     "pages/myPostHistory/myPostHistory",
     "pages/detail/detail",
     "pages/approval/approval",
-    "pages/donation/donation"
+    "pages/donation/donation",
+    "pages/findExpress/findExpress"
   ],
   "window": {
     "backgroundTextStyle": "light",

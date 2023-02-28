@@ -17,6 +17,21 @@ App({
       }
     })
   },
+  getExpressInfo: function(nu, cb) {
+    wx.request({
+      url: 'https://ali-deliver.showapi.com/showapi_expInfo?com=auto&nu='+nu,
+      data: {
+        
+      },
+      header: {
+        'Authorization': 'APPCODE 59336dcd6be14b508774f233c7d436b7'
+      },
+      success: function(res) {
+        console.log(res.data)
+        cb(res.data)
+      }
+    })
+  },
   globalData: {
     userInfo: null
   },
