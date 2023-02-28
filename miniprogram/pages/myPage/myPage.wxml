@@ -24,7 +24,7 @@
       </view>
       <text>我的直播</text>
     </view>
-    <view class="item message" bindtap="">
+    <view class="item message" bindtap="toFindExpress">
       <view class="image">
         <image src="../../images/icon/4material.png" mode="widthFix" />
       </view>
@@ -33,6 +33,7 @@
   </view>
   <view>
     <button bindtap="myAddress">我的地址</button>
+    <button hidden="{{!userInfo.done}}" bindtap="toApproval">去审核</button>
   </view>
 </view>
 

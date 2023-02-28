@@ -2,8 +2,11 @@
 <button class="" bindtap="toPost">添加</button>
 <view>我发布过的信息：</view>
 <view wx:for="{{animal}}" wx:key="index">
+  <image src="{{item.fileID}}"></image>
   <view>年龄：{{item.age}}</view>
   <viex>是否绝育：{{item.is}}</viex>
   <viex>种类：{{item.species}}</viex>
-  <image src="{{item.fileID}}"></image>
+  <view wx:if="{{item.state==0}}">待审核</view>
+  <view wx:if="{{item.state==1}}">通过</view>
+  <view wx:if="{{item.state==2}}">未通过</view>
 </view>

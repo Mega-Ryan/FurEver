@@ -70,7 +70,9 @@ Page({
               region:that.data.region,
               age:that.data.age,
               sex:that.data.sex,
-              name:that.data.name
+              name:that.data.name,
+              isApproval:false, //true表示公开，false表示未公开
+              state:0  //0表示状态待定，1表示审核通过，2表示审核未通过
             },
             success:function(res){
               console.log(res)

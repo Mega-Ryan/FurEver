@@ -8,7 +8,17 @@ Page({
   data: {
     userInfo:[]
   },
-  toAdd(){
+  toFindExpress(e){
+    wx.reLaunch({
+      url: '../findExpress/findExpress',
+    })
+  },
+  toApproval(e){
+    wx.reLaunch({
+      url: '../approval/approval'
+    })
+  },
+  toAdd(e){
     wx.reLaunch({
       url: '../myPostHistory/myPostHistory'
     })
