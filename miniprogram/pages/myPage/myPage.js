@@ -8,6 +8,11 @@ Page({
   data: {
     userInfo:[]
   },
+  toAdoption(e){
+    wx.reLaunch({
+      url: '../myAdoption/myAdoption',
+    })
+  },
   toFindExpress(e){
     wx.reLaunch({
       url: '../findExpress/findExpress',

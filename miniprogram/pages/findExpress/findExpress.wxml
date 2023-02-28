@@ -1,6 +1,6 @@
 <!--pages/findExpress/findExpress.wxml-->
 <view class="box-input">
-  <input placeholder="请输入要查询的快递单号" bindinput='input'/>
+  <input placeholder="请输入要查询的快递单号" bindinput='input' value="{{expressNum}}"/>
   <view class="button" type="primary"   bindtap="btnClick"> 查询 </view>
 </view>
 <scroll-view scroll-y="true" class="scroll-view"  wx:if="{{show}}">

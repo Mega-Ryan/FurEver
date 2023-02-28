@@ -9,9 +9,6 @@
     <view>{{animalInfo.text}}</view>
 </view>
 <view>
-  <view>分享</view>
-  <view>收藏</view>
   <button bindtap="donation" id="{{animalInfo._id}}">捐赠物资</button>
-  <button bindtap="adoption">立即认养</button>
 </view>
 

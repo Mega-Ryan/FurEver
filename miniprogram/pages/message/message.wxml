@@ -1,2 +1,17 @@
 <!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
+<view>
+  <button bindtap="myReicive">我收到的</button>
+  <button bindtap="myPost">我邮寄的</button>
+</view>
+<view>
+  <view wx:if="{{!donationInfo}}">您没有包裹</view>
+  <view wx:else>
+    <view wx:for="{{donationInfo}}" wx:key="index">
+        <view>邮寄物品：{{item.type}}</view>
+        <view>重量：{{item.weight}}kg</view>
+        <view>详细信息：{{item.information}}</view>
+        <view>运单号：{{item.express}}</view>
+        <button id="{{index}}" bindtap="toQuery">查询物资信息</button>
+    </view>
+  </view>
+</view>
