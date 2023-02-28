@@ -6,7 +6,7 @@
   </view>
 
   <view class="classify">
-    <view class="item cloudAdoption" bindtap="">
+    <view class="item cloudAdoption" bindtap="toAdoption">
       <view class="image">
         <image src="../../images/icon/1paw.png"  mode="widthFix" />
       </view>
@@ -18,13 +18,13 @@
       </view>
       <text>我的发布</text>
     </view>
-    <view class="item live" bindtap="">
+    <view class="item live" bindtap="toLive">
       <view class="image">
         <image src="../../images/icon/3live.png" mode="widthFix" />
       </view>
       <text>我的直播</text>
     </view>
-    <view class="item message" bindtap="">
+    <view class="item message" bindtap="toFindExpress">
       <view class="image">
         <image src="../../images/icon/4material.png" mode="widthFix" />
       </view>
@@ -33,6 +33,7 @@
   </view>
   <view>
     <button bindtap="myAddress">我的地址</button>
+    <button hidden="{{!userInfo.done}}" bindtap="toApproval">去审核</button>
   </view>
 </view>
 

@@ -1,40 +1,44 @@
-// pages/cloudAdoption/cloudAdoption.js
-const db = wx.cloud.database()
+// pages/message/message.js
 const app = getApp()
-
-
+const db = wx.cloud.database()
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    animal: []
+    animalInfo:[],
   },
-  
-  //路由传参到动物详情页
-  toDetail(e){
+  toAdoptionDetail(e){
     console.log(e)
     wx.reLaunch({
-      url: `/pages/detail/detail?id=${e.currentTarget.id}`,
+      url: `/pages/adoptionDetail/adoptionDetail?id=${e.currentTarget.id}`,
     })
   },
-  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    var that = this
-    db.collection('test').where({}).get({
-      success: function(res) {
-        // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+    let that = this
+    let userInfo = app.globalData.userInfo
+    db.collection('adoption').where({
+      _openid:userInfo.openid
+    }).get({
+      success:(res)=>{
         console.log(res)
-        that.setData({
-          animal: res.data,
-        })
-        console.log(that.data.animal)
+        for(var i=0;i<res.data.length;i++){
+          db.collection('test').doc(res.data[i].animalid).get({
+            success:(res)=>{
+              that.setData({
+                animalInfo:that.data.animalInfo.concat(res.data)
+              })
+              console.log("finally",that.data.animalInfo)
+            }
+          })
+        }
+        
+        
       }
     })
-
   },
 
   /**
@@ -48,12 +52,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    console.log("onShow")
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 1
-      })
-    }
+
   },
 
   /**

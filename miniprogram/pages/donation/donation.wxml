@@ -1,0 +1,38 @@
+<!--pages/donation/donation.wxml-->
+<text>你捐了什么？</text>
+<view class="PA">
+  <form bindsubmit="bthsub">
+
+    <view class="animal">物流单号</view>
+    <view class = "nr">
+      <input class="input" bindinput='handleInput' name="Number" placeholder="请输入快递号" />
+    </view>
+
+    <view class="animal">物资种类</view>
+    <view class = "nr">
+      <radio-group class="radios" bindchange='handleChange1'>
+        <radio value="food">衣食</radio>
+        <radio value="cloth">住行</radio>
+        <radio value="other">其他</radio>
+      </radio-group>
+    </view>
+
+    <view class="animal">物资重量</view>
+    <view class="nr">
+      <input name="weight" bindinput='handleInput2' placeholder="请输入数字"/>
+    </view>
+
+    <view class="animal">补充说明</view>
+    <textarea class="text" 
+    id="information" maxlength='150' placeholder="请输入补充说明(150字以内)" name="information" value="{{information}}"bindinput="getDataBindTap">
+    <view class='word' id="counter">{{lastArea}}/150</view>
+    </textarea>
+
+    <view class="btn">
+      <button type="primary" form-type="submit" > 提交</button>
+    </view>
+    <view class="btn">
+      <button type="primary" form-type="reset"  > 重置</button>
+    </view>
+  </form>
+</view>

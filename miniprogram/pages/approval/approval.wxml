@@ -1,0 +1,10 @@
+<view wx:for="{{animal}}" wx:key="index" id="{{item._id}}">
+    <image src="{{item.fileID}}"></image>
+    <view>名字：{{item.name}}</view>
+    <view>年龄：{{item.age}}</view>
+    <view>{{item.text}}</view> 
+    <button bindtap="confirm" id="{{index}}">同意</button>
+    <button bindtap="refuse" id="{{index}}">拒绝</button>
+</view>
+
+

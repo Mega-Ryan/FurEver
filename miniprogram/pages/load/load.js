@@ -4,7 +4,7 @@ var app = getApp()
 // miniprogram/pages/load/load.js
 const db = wx.cloud.database()
 const _ = db.command
-const user = db.collection('User')
+const user = db.collection('user')
 const postList = db.collection('postList')
 let result = {}
 
@@ -29,7 +29,7 @@ Page({
   onLoad: function (options) {
     
   },
-  getUserProfile(e) {
+  getUserProFile(e) {
     // 推荐使用 wx.getUserProfile 获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
     // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
@@ -41,6 +41,7 @@ Page({
         })
         console.log("授权成功",res)
         app.globalData.userInfo = res.userInfo
+        app.globalData.hasUserInfo = true
         console.log(app.globalData.userInfo)
         wx.login({
           //成功放回
@@ -55,14 +56,82 @@ Page({
                 app.globalData.userInfo.openid=res.data.openid
                 //获取到你的openid
                 console.log(app.globalData.userInfo);
+                //判断该用户是否存储在数据库中
+                user.where({
+                  _openid: app.globalData.userInfo.openid
+                }).get({
+                  success:(res)=>{ 
+                    if(res.data.length == 0){
+                      console.log(res)
+                      console.log(app.globalData.userInfo.nickName)
+                      user.add({
+                        data:{
+                          userName:app.globalData.userInfo.nickName,
+                          done:false
+                        },success:(res)=>{
+                          app.globalData.userInfo.done = false
+                        }
+                      })
+                      wx.showModal({
+                        title: '提示',
+                        content: '用户登陆',
+                        success: function (res) {
+                          if (res.confirm) {//这里是点击了确定以后
+                            wx.reLaunch({
+                              url: '../myPage/myPage',
+                            })
+                          } else {//这里是点击了取消以后
+                            wx.reLaunch({
+                              url: '../index/index',
+                            })
+                          }
+                        }
+                      })
+                    }else{
+                      console.log(res.data[0].done)
+                      app.globalData.userInfo.done = res.data[0].done
+                      if(res.data[0].done){
+                        wx.showModal({
+                          title: '提示',
+                          content: '管理员登陆',
+                          success: function (res) {
+                            if (res.confirm) {//这里是点击了确定以后
+                              wx.reLaunch({
+                                url: '../approval/approval',
+                              })
+                            } else {//这里是点击了取消以后
+                              wx.reLaunch({
+                                url: '../index/index',
+                              })
+                            }
+                          }
+                        })
+                      }else{
+                        wx.showModal({
+                          title: '提示',
+                          content: '用户登陆',
+                          success: function (res) {
+                            if (res.confirm) {//这里是点击了确定以后
+                              wx.reLaunch({
+                                url: '../myPage/myPage',
+                              })
+                            } else {//这里是点击了取消以后
+                              wx.reLaunch({
+                                url: '../index/index',
+                              })
+                            }
+                          }
+                        })
+                      }
+                    }
+                  }
+                })
               }
             })
           }
         })
         
-        wx.reLaunch({
-          url: '/pages/myPage/myPage',
-        })
+        
       },
       fail:(res)=>{
         console.log("授权失败",res)

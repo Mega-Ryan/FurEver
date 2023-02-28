@@ -8,14 +8,34 @@ Page({
   data: {
     userInfo:[]
   },
-  toAdd(){
+  toAdoption(e){
     wx.reLaunch({
-      url: '../postAnimal/postAnimal'
+      url: '../myAdoption/myAdoption',
+    })
+  },
+  toFindExpress(e){
+    wx.reLaunch({
+      url: '../findExpress/findExpress',
+    })
+  },
+  toApproval(e){
+    wx.reLaunch({
+      url: '../approval/approval'
+    })
+  },
+  toAdd(e){
+    wx.reLaunch({
+      url: '../myPostHistory/myPostHistory'
     })
   },
   myAddress(e){
     wx.reLaunch({
       url: '../addressList/addressList',
+    })
+  },
+  toLive(e){
+    wx.reLaunch({
+      url: '../live/live',
     })
   },
   /**

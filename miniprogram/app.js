@@ -7,7 +7,7 @@ App({
     wx.setStorageSync('logs', logs)
     //
     wx.cloud.init({
-      env: 'cloud1-1gzx44mtd187a189',
+      env: 'cloud1-6gt7m3fn0b4fb5ce',
       traceUser: true,
     })
     // 登录
@@ -17,8 +17,24 @@ App({
       }
     })
   },
+  getExpressInfo: function(nu, cb) {
+    wx.request({
+      url: 'https://ali-deliver.showapi.com/showapi_expInfo?com=auto&nu='+nu,
+      data: {
+        
+      },
+      header: {
+        'Authorization': 'APPCODE 59336dcd6be14b508774f233c7d436b7'
+      },
+      success: function(res) {
+        console.log(res.data)
+        cb(res.data)
+      }
+    })
+  },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    hasUserInfo:false
   },
   
 })
