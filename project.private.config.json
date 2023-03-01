@@ -13,8 +13,8 @@
           "query": ""
         },
         {
-          "name": "pages/addressList/addressList",
-          "pathName": "pages/addressList/addressList",
+          "name": "pages/postAnimal/postAnimal",
+          "pathName": "pages/postAnimal/postAnimal",
           "query": "",
           "scene": null
         },

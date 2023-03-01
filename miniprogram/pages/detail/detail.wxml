@@ -1,5 +1,11 @@
+
+
 <view>
-    <image src="{{animalInfo.fileID}}"></image>
+    <swiper autoplay="{{true}}" circular="{{true}}" indicator-dots="{{true}}" interval="2000">
+      <swiper-item wx:for="{{animalInfo.fileID}}" wx:key="index">
+        <image src="{{item}}" />
+      </swiper-item>
+    </swiper>
     <view>名字：{{animalInfo.name}}</view>
     <view>年龄：{{animalInfo.age}}</view>
     <view>性别：{{animalInfo.sex}}</view>

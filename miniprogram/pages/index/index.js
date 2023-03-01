@@ -38,8 +38,9 @@ Page({
     sex:null
   },
   toDetail(e){
-    // console.log(e)
-    
+
+    console.log(e)
+
     wx.reLaunch({
       url: `/pages/detail/detail?id=${e.currentTarget.id}`,
     })
@@ -90,16 +91,21 @@ Page({
     }
     this.setData({
       chooseItems:this.data.chooseItems,
-      region:""
+
+      region:[]
+
     })
   },
   //确认筛选
   confirm:function(){
     let that = this
     that.setData({
-      species:"",
+
+      species:null,
       sreenShow:false,
-      sex:""
+      sex:null,
+      animal:[]
+
     })
     for(var i=0,t=1000;i<t;i++){
       if(that.data.chooseItems[i]==null){
@@ -124,30 +130,59 @@ Page({
     }
     console.log(that.data.species)
     console.log(that.data.sex)
+    console.log(that.data.region)
     //从数据库中筛选
     db.collection('test').where({
-      isApproval:true,
-      species:that.data.species,
-      sex:that.data.sex,
-      region:that.data.region
+      isApproval:true
+
     }).get({
       success: function(res) {
         // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
         // console.log("数据库查询结果:")
         // console.log(res)
-        that.setData({
-          animal:res.data,
-        })
+
+        that.data.animal = res.data
+        if(that.data.species != null){
+          that.data.animal = []
+          for(var i=0;i<res.data.length;i++){
+            if(res.data[i].species == that.data.species){
+              that.setData({
+                animal:that.data.animal.concat(res.data[i])
+              })
+        
+            }
+          }
+        }
+        var animal1 = that.data.animal
+        if(that.data.sex != null){
+          that.data.animal = []
+          for(var i=0;i<animal1.length;i++){
+            if(animal1[i].sex == that.data.sex){
+              that.setData({
+                animal:that.data.animal.concat(animal1[i])
+              })
+            }
+          }
+        }
+        var animal2 = that.data.animal
+        if(that.data.region != null){
+          that.data.animal = []
+          for(var i=0;i<animal2.length;i++){
+            if(animal2[i].region == that.data.region){
+              that.setData({
+                animal:that.data.animal.concat(animal2[i])
+              })
+            }
+          }
+        }
+        
+
         // console.log(that.data.animal)
         // console.log("找到的结果")
         // console.log(that.data.animal)
       }
     })
-    if(that.data.species==""&&that.data.sex==""){
-      wx.reLaunch({
-        url: '../index/index',
-      })
-    }
+
   },
   sortShow:function(){
     this.setData({

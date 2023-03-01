@@ -1,1 +1,8 @@
 /* pages/message/message.wxss */
+swiper{
+  width: 100%;
+  height: calc(100vw*442/810);
+}
+image{
+  width: 100%;
+}
