@@ -23,33 +23,33 @@
     "navigationBarTextStyle": "black"
   },
   
-  "tabBar":{
-    "color": "#bfc1ab",
-    "selectedColor": "#13b11c",
-    "backgroundColor": "#e89928",
+  "tabBar": {
+    "custom": false,
+    "color": "#d38f62",
+    "selectedColor": "#d38f62",
     "list": [
       {
         "pagePath": "pages/index/index",
         "iconPath": "images/home.png",
-        "selectedIconPath": "images/homefill.png",
+        "selectedIconPath": "images/home_selected.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/cloudAdoption/cloudAdoption",
         "iconPath": "images/paw.png",
-        "selectedIconPath": "images/iospaw.png",
+        "selectedIconPath": "images/paw_selected.png",
         "text": "云认养"
       },
       {
         "pagePath": "pages/message/message",
-        "iconPath": "images/message_light.png",
-        "selectedIconPath": "images/message_fill_light.png",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message_selected.png",
         "text": "消息"
       },
       {
         "pagePath": "pages/myPage/myPage",
-        "iconPath": "images/normal.png",
-        "selectedIconPath": "images/face.png",
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile_selected.png",
         "text": "我的"
       }
     ]

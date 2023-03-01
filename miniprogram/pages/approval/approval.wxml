@@ -1,5 +1,5 @@
 <view wx:for="{{animal}}" wx:key="index" id="{{item._id}}">
-    <image src="{{item.fileID}}"></image>
+    <image src="{{item.fileID[0]}}"></image>
     <view>名字：{{item.name}}</view>
     <view>年龄：{{item.age}}</view>
     <view>{{item.text}}</view> 

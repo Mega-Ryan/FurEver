@@ -1,12 +1,34 @@
 <!--pages/myPostHistory/myPostHistory.wxml-->
-<button class="" bindtap="toPost">添加</button>
-<view>我发布过的信息：</view>
-<view wx:for="{{animal}}" wx:key="index">
-  <image src="{{item.fileID}}"></image>
-  <view>年龄：{{item.age}}</view>
-  <viex>是否绝育：{{item.is}}</viex>
-  <viex>种类：{{item.species}}</viex>
-  <view wx:if="{{item.state==0}}">待审核</view>
-  <view wx:if="{{item.state==1}}">通过</view>
-  <view wx:if="{{item.state==2}}">未通过</view>
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange "></text> 我的发布
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-orange" bindtap="toPost" data-target="Modal">新增发布</button>
+  </view>
+</view>
+<view class="cu-card case {{isCard?'no-card':''}}" wx:for="{{animal}}" wx:key="index" id="{{item._id}}">
+  <view class="cu-item shadow">
+    <view class="image" bindtap="toDetail">
+      <image src="{{item.fileID[0]}}" mode="widthFix"></image>
+      <view class="cu-tag bg-brown.light">年龄：{{item.age}}</view>
+      <view class="cu-bar bg-shadeBottom">
+        <text class="text-cut">{{item.name}}</text>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="content flex-sub">
+          <view class="text-grey">{{userInfo}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            十天前
+            <view class="text-gray text-sm">
+              <text class="cuIcon-favorfill margin-lr-xs"></text> 20
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

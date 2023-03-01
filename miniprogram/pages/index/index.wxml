@@ -1,14 +1,71 @@
-<view>
-
+<!-- 筛选和排序框 -->
+<view class="sreenBigBox">
+  <view class="sreenBox">
+    <view class="sreenItems">
+      <view class='sreen ' bindtap="sreenShow">筛选<image class='head {{sreenShow&&"rotating"}}'/></view>
+    </view>
+  </view>
+    <!-- 下拉框 -->
+  <view class="sreenConainer" style="height:{{sreenShow?1500:0}}rpx">
+    <view class="chooseBox">
+      <scroll-view  class="typeBox">
+        <view class="typeItems" wx:for="{{typeItems}}" wx:key="*this"
+          bindtap="chooseType" data-index="{{index}}">
+          <text class="typeItem {{index===typeCurrentIndex?'typeItemAdd':''}}">{{item}}</text>
+        </view>
+      </scroll-view>
+      <scroll-view class="chooseItems" scroll-y> 
+              <block wx:for="{{chooseItems[typeCurrentIndex]}}">
+                <view class='ItemLabel {{item.selected===true?"choosing":""}}' data-value="{{item.name}}" bindtap="chooseItem" checked="{{item.selected}}" data-index="{{index}}">
+                  {{item.name}}                                  
+                </view>
+              </block>
+      </scroll-view> 
+      
+    </view>
+    <picker mode="region" bindchange="getUserProvince" class="buttonConainer">
+          <view class='typeItem'>
+            区域<text wx:for="{{region}}">{{item}} </text>
+          </view>
+      </picker>
+    <view class="buttonConainer">
+      <button class="cancel" size="mini" bindtap="cancel">取  消</button>
+      <button class="clear" size="mini" bindtap="clear">清  除</button>
+      <button class="confirm"  size="mini" bindtap="confirm">确  认</button>
+    </view>
+    <view style="width: 100%;"/>
+    <view class='mask' v-if="{{flag}}" bindtap="mask"></view>
+  </view>
+ 
+  <view class="sreenConainer" style="height:{{sortShow?1000:0}}rpx"></view>
 </view>
-<view>
-  <view>助力爱心</view>
-  <view>寻求帮助</view>
-  <view>流浪动物救助，正在直播</view>
-  <view wx:for="{{animal}}" wx:key="index" id="{{item._id}}" bindtap="toDetail">
-    <image src="{{item.fileID}}"></image>
-    <view>名字：{{item.name}}</view>
-    <view>年龄：{{item.age}}</view>
-    <view>{{item.text}}</view> 
+
+<view>助力爱心</view>
+<view>寻求帮助</view>
+<view>流浪动物正在直播</view>
+
+<view class="cu-card case {{isCard?'no-card':''}}" wx:for="{{animal}}" wx:key="index" id="{{item._id}}" bindtap="toDetail">
+  <view class="cu-item shadow">
+    <view class="image">
+      <image src="{{item.fileID[0]}}" mode="widthFix"></image>
+      <view class="cu-tag bg-brown.light">年龄：{{item.age}}</view>
+      <view class="cu-bar bg-shadeBottom">
+        <text class="text-cut">{{item.name}}</text>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="content flex-sub">
+          <view class="text-grey">{{userInfo}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            十天前
+            <view class="text-gray text-sm">
+              <text class="cuIcon-favorfill margin-lr-xs"></text> 20
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

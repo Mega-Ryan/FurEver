@@ -22,14 +22,15 @@
           "query": ""
         },
         {
-          "name": "pages/addressList/addressList",
-          "pathName": "pages/addressList/addressList",
+          "name": "pages/postAnimal/postAnimal",
+          "pathName": "pages/postAnimal/postAnimal",
           "query": "",
           "scene": null
         },
         {
           "name": "pages/load/load",
           "pathName": "pages/load/load",
+          "query": "",
           "scene": null
         }
       ]
