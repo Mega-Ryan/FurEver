@@ -1,3 +1,4 @@
+
 <!-- 筛选和排序框 -->
 <view class="sreenBigBox">
   <view class="sreenBox">
@@ -47,6 +48,7 @@
 <view class="cu-card case {{isCard?'no-card':''}}" wx:for="{{animal}}" wx:key="index" id="{{item._id}}" bindtap="toDetail">
   <view class="cu-item shadow">
     <view class="image">
+
       <image src="{{item.fileID[0]}}" mode="widthFix"></image>
       <view class="cu-tag bg-brown.light">年龄：{{item.age}}</view>
       <view class="cu-bar bg-shadeBottom">

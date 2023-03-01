@@ -1,5 +1,4 @@
 const db = wx.cloud.database()
-const app = getApp()
 Page({
 
   /**
@@ -39,7 +38,9 @@ Page({
     sex:null
   },
   toDetail(e){
+
     console.log(e)
+
     wx.reLaunch({
       url: `/pages/detail/detail?id=${e.currentTarget.id}`,
     })
@@ -48,11 +49,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    if(!app.globalData.hasUserInfo){
-      wx.reLaunch({
-        url: '../load/load',
-      })
-    }
     var that = this
     db.collection('test').where({
       isApproval:true
@@ -95,17 +91,21 @@ Page({
     }
     this.setData({
       chooseItems:this.data.chooseItems,
+
       region:[]
+
     })
   },
   //确认筛选
   confirm:function(){
     let that = this
     that.setData({
+
       species:null,
       sreenShow:false,
       sex:null,
       animal:[]
+
     })
     for(var i=0,t=1000;i<t;i++){
       if(that.data.chooseItems[i]==null){
@@ -134,11 +134,13 @@ Page({
     //从数据库中筛选
     db.collection('test').where({
       isApproval:true
+
     }).get({
       success: function(res) {
         // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
         // console.log("数据库查询结果:")
         // console.log(res)
+
         that.data.animal = res.data
         if(that.data.species != null){
           that.data.animal = []
@@ -174,16 +176,13 @@ Page({
           }
         }
         
+
         // console.log(that.data.animal)
         // console.log("找到的结果")
         // console.log(that.data.animal)
       }
     })
-    // if(that.data.species==""&&that.data.sex==""){
-    //   wx.reLaunch({
-    //     url: '../index/index',
-    //   })
-    // }
+
   },
   sortShow:function(){
     this.setData({

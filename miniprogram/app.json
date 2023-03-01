@@ -1,20 +1,20 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
+    "pages/load/load",
     "pages/cloudAdoption/cloudAdoption",
     "pages/message/message",
     "pages/myPage/myPage",
     "pages/addAddress/addAddress",
     "pages/addressList/addressList",
     "pages/postAnimal/postAnimal",
-    "pages/load/load",
     "pages/myPostHistory/myPostHistory",
     "pages/detail/detail",
     "pages/approval/approval",
     "pages/donation/donation",
     "pages/findExpress/findExpress",
-    "pages/myAdoption/myAdoption"
+    "pages/myAdoption/myAdoption",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

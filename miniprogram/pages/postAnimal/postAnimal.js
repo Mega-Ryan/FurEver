@@ -14,6 +14,7 @@ Page({
     picAddress:[],
     fileID:[],
     name:"",
+
     sex:"male",
     region:["北京市", "北京市", "东城区"],
     description:"",
@@ -51,6 +52,7 @@ Page({
     })
   },
 
+
   chooseImg() {
     wx.chooseImage({
       count: 4, //默认9
@@ -66,9 +68,11 @@ Page({
             images: res.tempFilePaths
           })
         }
+
         this.setData({
           src:res.tempFilePaths[0],
          });
+
       }
     });
   },
@@ -86,7 +90,9 @@ Page({
       confirmText: '确认',
       success: res => {
         if (res.confirm) {
+
           this.data.images.splice(e.currentTarget.dataset.index, 1);
+
           this.setData({
             images: this.data.images
           })
