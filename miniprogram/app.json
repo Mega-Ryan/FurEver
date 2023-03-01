@@ -1,19 +1,19 @@
 {
   "pages": [
-    "pages/load/load",
     "pages/index/index",
+    "pages/load/load",
     "pages/cloudAdoption/cloudAdoption",
     "pages/message/message",
     "pages/myPage/myPage",
-    "pages/postAnimal/postAnimal",
-    "pages/myPostHistory/myPostHistory",
     "pages/addAddress/addAddress",
     "pages/addressList/addressList",
+    "pages/postAnimal/postAnimal",
+    "pages/myPostHistory/myPostHistory",
     "pages/detail/detail",
     "pages/approval/approval",
     "pages/donation/donation",
     "pages/findExpress/findExpress",
-    "pages/myAdoption/myAdoption"
+    "pages/myAdoption/myAdoption",
     "pages/logs/logs"
   ],
   "window": {
@@ -22,6 +22,7 @@
     "navigationBarTitleText": "FurEver",
     "navigationBarTextStyle": "black"
   },
+  
   "tabBar": {
     "custom": false,
     "color": "#d38f62",
@@ -53,6 +54,7 @@
       }
     ]
   },
+
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

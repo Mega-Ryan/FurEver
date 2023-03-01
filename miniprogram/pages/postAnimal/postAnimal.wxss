@@ -16,7 +16,3 @@ page {
 .imgContant {
   margin-left: 40rpx;
 }
-
-.cu-form-group .title {
-  min-width: calc(4em + 30rpx);
-}
