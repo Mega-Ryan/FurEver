@@ -16,3 +16,11 @@ page {
 .imgContant {
   margin-left: 40rpx;
 }
+
+.minor-margin-top {
+  margin-top: 5rpx;
+}
+
+.minor-padding-bottom {
+  padding: 0 0 20px;
+}

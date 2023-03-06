@@ -2,7 +2,7 @@
 const db = wx.cloud.database()
 const app = getApp()
 Page({
-
+  
   /**
    * 页面的初始数据
    */
@@ -54,6 +54,11 @@ Page({
     })
   },
   onLoad(options) {
+    if(!app.globalData.hasUserInfo){
+      wx.reLaunch({
+        url: '../load/load',
+      })
+    }
     this.Query()
   },
 

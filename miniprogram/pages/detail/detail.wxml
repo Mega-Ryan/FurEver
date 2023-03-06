@@ -1,17 +1,54 @@
-<view>
-    <image src="{{animalInfo.fileID}}"></image>
-    <view>名字：{{animalInfo.name}}</view>
-    <view>年龄：{{animalInfo.age}}</view>
-    <view>性别：{{animalInfo.sex}}</view>
-    <view>动物种类：{{animalInfo.species}}</view>
-    <view>所在地：{{animalInfo.region}}</view>
-    <view>是否绝育：{{animalInfo.isSterilization}}</view>
-    <view>{{animalInfo.text}}</view>
-</view>
-<view>
-  <view>分享</view>
-  <view>收藏</view>
-  <button bindtap="donation" id="{{animalInfo._id}}">捐赠物资</button>
-  <button bindtap="adoption">立即认养</button>
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{animalInfo.fileID}}" wx:key>
+    <image src="{{item}}" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+
+<view class="cu-list menu-avatar comment solids-top">
+  <view class="cu-item">
+    <view class="content">
+      <view class="text-sl"></view>
+      <view class="text-content text-sl text-bold">
+        {{animalInfo.name}}
+      </view>
+      <view class="text-gray text-content text-df">
+        {{animalInfo.description}}
+      </view>
+    </view>
+  </view>
 </view>
 
+<view class="cu-form-group margin-top">
+  <view class="title text-bold">动物名字</view>
+  <text>{{animalInfo.name}}</text>
+</view>
+<view class="cu-form-group">
+  <view class="title text-bold">年龄</view>
+  <text>{{animalInfo.age}}</text>
+</view>
+<view class="cu-form-group">
+  <view class="title text-bold">性别</view>
+  <text wx:if="{{animalInfo.sex=='male'}}">雄</text>
+  <text wx:else>雌</text>
+</view>
+<view class="cu-form-group">
+  <view class="title text-bold">动物种类</view>
+  <text wx:if="{{animalInfo.species=='cat'}}">猫</text>
+  <text wx:elif="{{animalInfo.species=='dog'}}">狗</text>
+  <text wx:else>其他</text>
+</view>
+<view class="cu-form-group">
+  <view class="title text-bold">所在地</view>
+  <text>{{animalInfo.region}}</text>
+</view>
+<view class="cu-form-group">
+  <view class="title text-bold">是否绝育</view>
+  <text wx:if="{{animalInfo.isSterilization=='yes'}}">是</text>
+  <text wx:elif="{{animalInfo.isSterilization=='no'}}">否</text>
+  <text wx:else>未知</text>
+</view>
+
+<view class="cu-bar btn-group">
+  <button class="cu-btn bg-orange shadow-blur round" bindtap="donation" id="{{animalInfo._id}}">捐赠物资</button>
+  <button class="cu-btn bg-brown shadow-blur round" bindtap="adoption">立即认养</button>
+</view>

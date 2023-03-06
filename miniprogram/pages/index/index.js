@@ -38,10 +38,24 @@ Page({
     sex:null
   },
   toDetail(e){
+<<<<<<< Updated upstream
     // console.log(e)
     
+=======
+    console.log(e)
+>>>>>>> Stashed changes
     wx.reLaunch({
       url: `/pages/detail/detail?id=${e.currentTarget.id}`,
+    })
+  },
+  toAdoption(e){
+    wx.reLaunch({
+      url: '/pages/cloudAdoption/cloudAdoption',
+    })
+  },
+  toPost(e){
+    wx.navigateTo({
+      url: '/pages/postAnimal/postAnimal',
     })
   },
   /**
@@ -90,16 +104,27 @@ Page({
     }
     this.setData({
       chooseItems:this.data.chooseItems,
+<<<<<<< Updated upstream
       region:""
+=======
+      region:[]
+>>>>>>> Stashed changes
     })
   },
   //确认筛选
   confirm:function(){
     let that = this
     that.setData({
+<<<<<<< Updated upstream
       species:"",
       sreenShow:false,
       sex:""
+=======
+      species:null,
+      sreenShow:false,
+      sex:null,
+      animal:[]
+>>>>>>> Stashed changes
     })
     for(var i=0,t=1000;i<t;i++){
       if(that.data.chooseItems[i]==null){
@@ -124,30 +149,83 @@ Page({
     }
     console.log(that.data.species)
     console.log(that.data.sex)
+<<<<<<< Updated upstream
     //从数据库中筛选
     db.collection('test').where({
       isApproval:true,
       species:that.data.species,
       sex:that.data.sex,
       region:that.data.region
+=======
+    console.log(that.data.region)
+    //从数据库中筛选
+    db.collection('test').where({
+      isApproval:true
+>>>>>>> Stashed changes
     }).get({
       success: function(res) {
         // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
         // console.log("数据库查询结果:")
         // console.log(res)
+<<<<<<< Updated upstream
         that.setData({
           animal:res.data,
         })
+=======
+        that.data.animal = res.data
+        if(that.data.species != null){
+          that.data.animal = []
+          for(var i=0;i<res.data.length;i++){
+            if(res.data[i].species == that.data.species){
+              that.setData({
+                animal:that.data.animal.concat(res.data[i])
+              })
+        
+            }
+          }
+        }
+        var animal1 = that.data.animal
+        if(that.data.sex != null){
+          that.data.animal = []
+          for(var i=0;i<animal1.length;i++){
+            if(animal1[i].sex == that.data.sex){
+              that.setData({
+                animal:that.data.animal.concat(animal1[i])
+              })
+            }
+          }
+        }
+        var animal2 = that.data.animal
+        if(that.data.region != null){
+          that.data.animal = []
+          for(var i=0;i<animal2.length;i++){
+            if(animal2[i].region == that.data.region){
+              that.setData({
+                animal:that.data.animal.concat(animal2[i])
+              })
+            }
+          }
+        }
+        
+>>>>>>> Stashed changes
         // console.log(that.data.animal)
         // console.log("找到的结果")
         // console.log(that.data.animal)
       }
     })
+<<<<<<< Updated upstream
     if(that.data.species==""&&that.data.sex==""){
       wx.reLaunch({
         url: '../index/index',
       })
     }
+=======
+    // if(that.data.species==""&&that.data.sex==""){
+    //   wx.reLaunch({
+    //     url: '../index/index',
+    //   })
+    // }
+>>>>>>> Stashed changes
   },
   sortShow:function(){
     this.setData({

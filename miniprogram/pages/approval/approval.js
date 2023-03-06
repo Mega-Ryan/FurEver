@@ -37,7 +37,6 @@ Page({
             }
           }
         })
-        
       }
     })
     
@@ -70,7 +69,6 @@ Page({
             }
           }
         })
-        
       }
     })
   },
@@ -80,7 +78,8 @@ Page({
   onLoad(options) {
     let that = this
     db.collection('test').where({
-      isApproval:false
+      isApproval:false,
+      state:0
     }).get({
       success:function(res){
         that.setData({

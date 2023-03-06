@@ -6,7 +6,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:[]
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    userInfo:[],
+    iconList: [{
+      icon: 'attentionfavor',
+      color: 'red',
+      badge: 120,
+      name: '我的云养',
+      url: 'toAdoption'
+    }, {
+      icon: 'community',
+      color: 'orange',
+      badge: 1,
+      name: '我的发布',
+      url: 'toAdd'
+    }, {
+      icon: 'record',
+      color: 'yellow',
+      badge: 0,
+      name: '我的直播',
+      url: 'toLive'
+    }, {
+      icon: 'deliver',
+      color: 'olive',
+      badge: 22,
+      name: '物资信息',
+      url: 'toFindExpress'
+    }],
+    gridCol:4,
+    skin: false
   },
   toAdoption(e){
     wx.reLaunch({
@@ -42,6 +71,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    if(!app.globalData.hasUserInfo){
+      wx.reLaunch({
+        url: '../load/load',
+      })
+    }
     this.setData({
       userInfo : app.globalData.userInfo
     })

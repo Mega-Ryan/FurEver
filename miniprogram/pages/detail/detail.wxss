@@ -1,1 +1,23 @@
 /* pages/message/message.wxss */
+
+.screen-swiper {
+	min-height: 675rpx;
+}
+
+.cu-form-group {
+	background-color: var(--white);
+	padding: 1rpx 30rpx;
+	display: flex;
+	align-items: center;
+	min-height: 100rpx;
+	justify-content: space-between;
+}
+
+.cu-form-group+.cu-form-group {
+	border-top: 1rpx solid #fff;
+}
+
+.cu-list.menu-avatar.comment>.cu-item {
+	padding: 10rpx 10rpx 10rpx 40rpx;
+	height: auto
+}

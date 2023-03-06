@@ -2,12 +2,12 @@
 const db = wx.cloud.database()
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
-   */
+  */
   data: {
-    animalInfo:null
+    animalInfo:null,
+    cardCur: 0
   },
   adoption(e){
     let that = this
@@ -16,17 +16,41 @@ Page({
       content: '确定云养？',
       success: function (res) {
         if (res.confirm) {//这里是点击了确定以后
-          db.collection('test').doc(that.data.animalInfo._id).get({
+          // 先查询有没有同样的领养记录
+          db.collection('test').doc(that.data.animalInfo._id).get({//先查询当前领养动物的id
             success:(res)=>{
+                console.log("查询到的记录：")
                 console.log(res)
-                db.collection('adoption').add({
-                  data:{
-                    animalid:res.data._id,
-                    hostid:res.data._openid
+                console.log("查询到的记录")
+                let _idTEMP = res.data._id
+                let _openidTEMP = res.data._openid
+                db.collection('adoption').where({
+                  animalid:res.data._id,
+                  hostid:res.data._openid,
+                  _openid:app.globalData.userInfo.openid
+                }).get().then(res=>{
+                  // console.log(res)
+                  // console.log(app.globalData.userInfo)
+                  if (res.data.length==0){
+                    console.log("why")
+                    db.collection('adoption').add({//然后再加一条记录（动物id+领养人id）有重复记录风险
+                      data:{
+                        animalid:_idTEMP,
+                        hostid:_openidTEMP
+                      }
+                    })
+                    wx.reLaunch({
+                      url: '../myAdoption/myAdoption',
+                    })
+                  }else{
+                    wx.showModal({
+                      title: '认养失败',
+                      content: '您已认养该流浪动物',
+                      complete: (res) => {
+
+                      }
+                    })
                   }
-                })
-                wx.reLaunch({
-                  url: '../myAdoption/myAdoption',
                 })
             }
           })
@@ -53,8 +77,6 @@ Page({
         console.log("animalInfo",that.data.animalInfo)
       }
     })
-    
-
   },
 
   /**

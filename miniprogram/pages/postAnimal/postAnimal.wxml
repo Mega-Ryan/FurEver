@@ -11,7 +11,11 @@
       <view class="title">动物种类</view>
       <radio class="orange radio" value="cat" checked></radio>猫
       <radio class="orange radio" value="dog"></radio>狗
+<<<<<<< Updated upstream
       <radio class="orange radio"  value="other"></radio>其他
+=======
+      <radio class="orange radio" value="other"></radio>其他
+>>>>>>> Stashed changes
     </view>
   </radio-group>
 
@@ -31,6 +35,7 @@
 
   <view class="cu-form-group">
     <view class="title">动物年龄</view>
+<<<<<<< Updated upstream
     <input name="age" placeholder="请输入动物年龄" bindinput="handleInput"></input>
   </view>
 
@@ -39,10 +44,16 @@
     <picker mode="region" bindchange="getUserProvince">
       <view>
         选择地址：<text wx:for="{{region}}">{{item}} </text>
+=======
+    <picker bindchange="agePick" value="{{index}}" range="{{ageRange}}">
+      <view class="picker">
+        {{index?ageRange[index]:'请选择'}}
+>>>>>>> Stashed changes
       </view>
     </picker>
   </view>
 
+<<<<<<< Updated upstream
   <view class="cu-bar bg-white margin-top">
 		<view class="action">
 			图片上传
@@ -70,3 +81,65 @@
     <button class="cu-btn text-orange line-orange shadow" form-type="reset">重置</button>
   </view>
 </form>
+=======
+  <view class="cu-form-group">
+    <view class="title">动物所在地</view>
+    <picker mode="region" bindchange="getUserProvince" value="{{region}}">
+      <view>
+        <text wx:for="{{region}}">{{item}} </text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="cu-form-group align-start">
+    <view class="title">描述</view>
+    <textarea name="description" maxlength="-1" disabled="{{modalName!=null}}" bindinput="descripInput"></textarea>
+  </view>
+
+  <view class="cu-bar bg-white minor-margin-top">
+    <view class="action">
+      图片上传
+    </view>
+    <view class="action">
+      {{images.length}}/4
+    </view>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{images}}" wx:key="index" bindtap="viewImg" data-url="{{images[index]}}">
+        <image src='{{images[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="delImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="chooseImg" wx:if="{{images.length<4}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-bar btn-group bg-white minor-padding-bottom">
+    <button class="cu-btn bg-orange shadow-blur round lg" bindtap="baidu" data-target="Modal">检测动物类别</button>
+  </view>
+
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">动物类型识别结果</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        {{animalInfo[0].name}}
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-bar btn-group margin-top">
+    <button class="cu-btn bg-orange shadow-blur" form-type="submit">保存</button>
+    <button class="cu-btn text-orange line-orange shadow" form-type="reset">重置</button>
+  </view>
+</form>
+>>>>>>> Stashed changes
